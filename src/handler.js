@@ -1,3 +1,7 @@
 // handler.js
+'use strict';
+import Hello from './handlers/hello.js';
 
-console.log(`handler.js`);
+export const hello = Hello;
+
+export default { hello };
