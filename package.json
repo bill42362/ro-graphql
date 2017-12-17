@@ -4,6 +4,14 @@
   "description": "RO database api with graphql.",
   "main": "dist/index.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "buildjs": "cross-env NODE_ENV=production babel src -d dist --ignore .test.js",
+    "build": "npm run clean && npm run buildjs",
+    "deploy": "npm run build && sls deploy -v",
+    "devbuildjs": "babel src -d dist --ignore .test.js",
+    "devbuild": "npm run clean && npm run devbuildjs",
+    "devserver": "npm run devbuild && node dist",
+    "devserver:auto": "nodemon --ignore dist --exec babel-node src",
     "test": "jest"
   },
   "repository": {
@@ -20,5 +28,15 @@
   "bugs": {
     "url": "https://github.com/bill42362/ro-graphql/issues"
   },
-  "homepage": "https://github.com/bill42362/ro-graphql#readme"
+  "homepage": "https://github.com/bill42362/ro-graphql#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cors": "^2.8.4",
+    "es6-promise": "^4.1.1",
+    "express": "^4.16.2",
+    "js-yaml": "^3.10.0",
+    "nodemon": "^1.13.3",
+    "rimraf": "^2.6.2"
+  }
 }
