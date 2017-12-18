@@ -15,6 +15,6 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
 }));
 
-app.listen(EXPRESS_PORT);
-
-console.log(`Listening ${EXPRESS_PORT} ...`);
+app.listen(EXPRESS_PORT, () => {
+    console.log(`Listening ${EXPRESS_PORT} ...`);
+});
